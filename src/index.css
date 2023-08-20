@@ -1,7 +1,26 @@
-*,
-*::after,
-*::before {
-  margin: 0;
+* {
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.layout {
+  display: flex;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.sidebar {
+  width: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-open .sidebar {
+  width: 250px;
+}
+
+.content-inner {
+  padding: 20px;
 }
