@@ -1,45 +1,32 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { userLogin } from '../../redux/user/login';
+import { loginAsync } from '../../redux/user/userSlice';
 import './login.css';
 
 const Login = () => {
-  const [name, setName] = useState('');
-  const [errors, setErrors] = useState('');
-  const [success, setSuccess] = useState('');
-
+  const { loginError, success } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const formRef = useRef();
 
-  const newState = useSelector((state) => state.loginSessionsReducer);
-
-  const handleChange = (e) => {
-    const input = e.target;
-    const newUsername = input.value;
-    switch (input.name) {
-      case 'name':
-        setName(newUsername);
-        return name;
-
-      default:
-        return 'yes';
-    }
-  };
-
-  const handleSubmit = (e) => {
-    const form = e.target;
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    form.reset();
 
-    dispatch(userLogin(name));
+    const formData = new FormData(formRef.current);
+    const email = formData.get('email');
+    const password = formData.get('password');
 
-    if (newState.status === 200) {
-      setSuccess(newState.fetchedData.message);
+    const data = {
+      user: { email, password },
+    };
+
+    try {
+      await dispatch(loginAsync(data));
       navigate('/mainpage');
-    } else {
-      setErrors(newState.fetchedData.error);
+      e.target.reset();
+    } catch (error) {
+      throw new Error(error);
     }
   };
 
@@ -47,27 +34,31 @@ const Login = () => {
     <section className="login-section">
       <div className="login-container">
         <h2 className="login-title">Login</h2>
-        <form onSubmit={handleSubmit} className="login-form">
+        <form onSubmit={handleSubmit} className="login-form" ref={formRef}>
           <input
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Enter your name"
-            onChange={handleChange}
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
             required
           />
-          <div className="d-flex">
-            <button type="submit" className=" button1 btn btn-secondary me-4 fs-4">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div className="d-flex flex-column gap-2">
+            <button type="submit" className="button1 btn btn-secondary me-4 fs-4">
               Log in
             </button>
             <NavLink to="/signup">
               <button type="button" className="button1 btn btn-secondary me-4 fs-4">Sign Up</button>
             </NavLink>
           </div>
-          <>
-            <p>{success}</p>
-            <p>{errors}</p>
-          </>
+          {loginError && <p className="text-danger">{loginError}</p>}
+          {success && <p>{success}</p>}
         </form>
       </div>
     </section>

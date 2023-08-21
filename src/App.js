@@ -4,6 +4,7 @@ import SplashScreen from './components/SplashScreen/SplashScreen';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import MainPage from './components/MainPage/MainPage';
+import { ProtectedRoute, Layout } from './components';
 
 function App() {
   return (
@@ -11,7 +12,11 @@ function App() {
       <Route exact path="/" element={<SplashScreen />} />
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/signup" element={<Register />} />
-      <Route exact path="/mainpage" element={<MainPage />} />
+      <Route element={<ProtectedRoute />}>
+        <Route exact path="/mainpage" element={<Layout />}>
+          <Route exact path="/mainpage" element={<MainPage />} />
+        </Route>
+      </Route>
     </Routes>
   );
 }
