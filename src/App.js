@@ -1,10 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import SplashScreen from './components/SplashScreen/SplashScreen';
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
-import MainPage from './components/MainPage/MainPage';
-import { ProtectedRoute, Layout } from './components';
+import {
+  Layout,
+  ProtectedRoute,
+  SplashScreen,
+  Login,
+  Register,
+  Doctors,
+  DoctorDetails,
+} from './components';
 
 function App() {
   return (
@@ -13,8 +17,9 @@ function App() {
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/signup" element={<Register />} />
       <Route element={<ProtectedRoute />}>
-        <Route exact path="/mainpage" element={<Layout />}>
-          <Route exact path="/mainpage" element={<MainPage />} />
+        <Route exact path="/doctors" element={<Layout />}>
+          <Route exact path="/doctors" element={<Doctors />} />
+          <Route exact path="/doctors/:id" element={<DoctorDetails />} />
         </Route>
       </Route>
     </Routes>

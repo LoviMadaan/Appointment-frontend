@@ -23,7 +23,7 @@ const Login = () => {
 
     try {
       await dispatch(loginAsync(data));
-      navigate('/mainpage');
+      navigate('/doctors');
       e.target.reset();
     } catch (error) {
       throw new Error(error);
