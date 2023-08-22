@@ -25,13 +25,13 @@ const Sidebar = () => {
     <nav id="sidebar" className="bg-light" style={{ width: '250px' }}>
       <div className="position-sticky">
         <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-          <NavLink to="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <NavLink to="/doctors" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <span className="fs-5 d-none d-sm-inline text-dark">Doctor Appoinments</span>
           </NavLink>
           <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             {links.map((link) => (
               <li className="nav-item" key={link.text}>
-                <NavLink to={link.path} className="nav-link align-middle px-0">
+                <NavLink to={link.path} className="nav-link align-middle  my-1">
                   <i className={`fs-4 ${link.icon}`} />
                   {' '}
                   <span className="ms-1 d-none d-sm-inline">{link.text}</span>
