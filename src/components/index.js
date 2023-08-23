@@ -5,6 +5,8 @@ import Register from './Register/Register';
 import ProtectedRoute from './ProtectedRoute';
 import Doctors from './doctors/Doctors';
 import DoctorDetails from './doctors/DoctorDetails';
+import Appointments from './appointments/Appointments';
+import NewAppointment from './appointments/NewAppointments';
 
 export {
   Layout,
@@ -14,4 +16,6 @@ export {
   ProtectedRoute,
   Doctors,
   DoctorDetails,
+  Appointments,
+  NewAppointment,
 };

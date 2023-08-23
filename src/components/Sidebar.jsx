@@ -7,8 +7,6 @@ const links = [
   { path: '/doctors', text: 'DOCTORS', icon: 'bi-speedometer2' },
   { path: '/doctors/new_appointment', text: 'ADD APPOINTMENT', icon: 'bi-calendar-plus' },
   { path: '/doctors/appointments', text: 'MY APPOINTMENTS', icon: 'bi-calendar-check' },
-  { path: '/doctors/new', text: 'ADD DOCTOR', icon: 'bi-person-plus' },
-  { path: '/doctors/delete', text: 'DELETE DOCTOR', icon: 'bi-person-dash' },
 ];
 
 const Sidebar = () => {

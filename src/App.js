@@ -8,6 +8,8 @@ import {
   Register,
   Doctors,
   DoctorDetails,
+  Appointments,
+  NewAppointment,
 } from './components';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route exact path="/doctors" element={<Layout />}>
           <Route exact path="/doctors" element={<Doctors />} />
           <Route exact path="/doctors/:id" element={<DoctorDetails />} />
+          <Route exact path="/doctors/appointments" element={<Appointments />} />
+          <Route exact path="/doctors/new_appointment" element={<NewAppointment />} />
         </Route>
       </Route>
     </Routes>
