@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://doctor-4phi.onrender.com';
 
 const initialState = {
   doctors: [],
@@ -12,14 +12,23 @@ const initialState = {
 };
 
 export const fetchDoctors = createAsyncThunk('doctors/fechDoctors', async () => {
-  const response = await Axios.get(BASE_URL, {
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: Cookies.get('jwt_token'),
-    },
-  });
-  return response.data;
+  const token = Cookies.get('jwt_token');
+  try {
+    const response = await Axios.get(`${BASE_URL}/doctors`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    if (error && error.response && error.response.data.error) {
+      throw new Error(error.response.data.error);
+    } else {
+      throw new Error('network error');
+    }
+  }
 });
 
 export const showDoctors = createAsyncThunk('doctors/showDoctors', async (id) => {

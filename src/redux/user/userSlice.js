@@ -10,7 +10,7 @@ const initialState = {
   loginError: null,
 };
 
-const url = 'http://localhost:3000';
+const url = 'https://doctor-4phi.onrender.com';
 
 export const signUpAsync = createAsyncThunk(
   'signup/Async',
@@ -22,7 +22,7 @@ export const signUpAsync = createAsyncThunk(
           Accept: 'application/json',
         },
       });
-      const token = res.headers.get('Authorization');
+      const { token } = res.data;
       const expirationTimeInMinutes = 10;
       Cookies.set('jwt_token', token, { expires: expirationTimeInMinutes });
       return res.data;
@@ -45,7 +45,7 @@ export const loginAsync = createAsyncThunk(
           Accept: 'application/json',
         },
       });
-      const token = res.headers.get('Authorization');
+      const { token } = res.data;
       const userInfo = res.data.user;
       const expirationTimeInMinutes = 5;
       Cookies.set('jwt_token', token, { expires: expirationTimeInMinutes / (24 * 60) });
@@ -60,24 +60,16 @@ export const loginAsync = createAsyncThunk(
   },
 );
 
-export const logoutAsync = createAsyncThunk(
-  'logout/Async',
-  async () => {
-    const res = await axios.delete(`${url}/logout`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: Cookies.get('jwt_token'),
-      },
-    });
-    Cookies.remove('jwt_token');
-    Cookies.remove('user_info');
-    return res.data;
-  },
-);
-
 const userSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    logout: (state) => ({
+      ...state,
+      userData: null,
+      isAuthenticated: false,
+    }),
+  },
   extraReducers(builder) {
     builder.addCase(signUpAsync.fulfilled, (state, action) => ({
       ...state,
@@ -94,12 +86,8 @@ const userSlice = createSlice({
       ...state,
       isAuthenticated: false,
       loginError: action.error.message,
-    }))
-      .addCase(logoutAsync.fulfilled, (state) => ({
-        ...state,
-        userData: null,
-        isAuthenticated: false,
-      }));
+    }));
   },
 });
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

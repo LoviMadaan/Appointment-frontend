@@ -1,24 +1,24 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logoutAsync } from '../redux/user/userSlice';
+import Cookies from 'js-cookie';
+import { logout } from '../redux/user/userSlice';
 
 const links = [
   { path: '/doctors', text: 'DOCTORS', icon: 'bi-speedometer2' },
   { path: '/doctors/new_appointment', text: 'ADD APPOINTMENT', icon: 'bi-calendar-plus' },
   { path: '/doctors/appointments', text: 'MY APPOINTMENTS', icon: 'bi-calendar-check' },
-  { path: '/doctors/new', text: 'ADD DOCTOR', icon: 'bi-person-plus' },
-  { path: '/doctors/delete', text: 'DELETE DOCTOR', icon: 'bi-person-dash' },
 ];
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logoutAsync()).then(() => {
-      navigate('/');
-    });
+  const logoutUser = () => {
+    dispatch(logout());
+    Cookies.remove('jwt_token');
+    Cookies.remove('user_info');
+    navigate('/');
   };
 
   return (
@@ -42,7 +42,7 @@ const Sidebar = () => {
           <hr className="d-none d-sm-block" />
           <button
             className="btn btn-outline-danger btn-sm mb-4"
-            onClick={handleLogout}
+            onClick={logoutUser}
             type="button"
           >
             Logout
