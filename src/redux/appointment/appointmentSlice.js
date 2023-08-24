@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 
 const BASE_URL = 'https://doctor-4phi.onrender.com';
 
+
 const initialState = {
   appointments: [],
   status: 'idle',
@@ -23,6 +24,7 @@ export const createAppointment = createAsyncThunk('appointment/createAppointment
 
 export const fetchAppointments = createAsyncThunk('appointment/fetchAppointments', async () => {
   const response = await Axios.get('https://doctor-4phi.onrender.com/appointments', {
+
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
