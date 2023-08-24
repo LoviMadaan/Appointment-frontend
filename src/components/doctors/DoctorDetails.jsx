@@ -14,21 +14,20 @@ const DoctorDetails = () => {
 
   return (
     <div className="container mt-5">
-      <div>
-        <div>
+      <div className="doctor-details-container">
+        <div className="doctor-image-container">
           <img
             src={doctor.image}
             alt={doctor.name}
-            className="img-fluid rounded-lg"
-            style={{ maxHeight: '300px', objectFit: 'cover' }}
+            className="doctor-image"
           />
         </div>
-        <div>
-          <h2>{doctor.name && doctor.name.toUpperCase()}</h2>
-          <p>{doctor.bio}</p>
+        <div className="doctor-info-container">
+          <h2 className="doctor-name">{doctor.name && doctor.name.toUpperCase()}</h2>
+          <p className="doctor-bio">{doctor.bio}</p>
           <button
             type="button"
-            className="btn btn-info btn-lg rounded-pill text-light"
+            className="btn-make-appointment"
             onClick={() => {
               navigate('/doctors/new_appointment');
             }}

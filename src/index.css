@@ -52,14 +52,6 @@
   justify-content: center;
 }
 
-.doctor-image {
-  height: 90%;
-  width: 90%;
-  overflow: hidden;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .doctor-details {
   font-size: 12px;
   color: #a2a4a4;
@@ -126,4 +118,50 @@
   text-align: center;
   padding: 20px;
   margin: 0;
+}
+
+/* DoctorDetails.css */
+.doctor-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.doctor-image-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.doctor-image {
+  height: 90%;
+  width: 90%;
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.doctor-info-container {
+  width: 250px !important;
+  flex: 2;
+}
+
+.doctor-name {
+  font-size: 24px;
+}
+
+.doctor-bio {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-make-appointment {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
