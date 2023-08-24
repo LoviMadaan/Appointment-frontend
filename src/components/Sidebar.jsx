@@ -6,6 +6,7 @@ import { logout } from '../redux/user/userSlice';
 
 const links = [
   { path: '/doctors', text: 'DOCTORS', icon: 'bi-speedometer2' },
+  { path: '/doctors/new', text: 'ADD DOCTOR', icon: 'bi-speedometer' },
   { path: '/doctors/new_appointment', text: 'ADD APPOINTMENT', icon: 'bi-calendar-plus' },
   { path: '/doctors/appointments', text: 'MY APPOINTMENTS', icon: 'bi-calendar-check' },
 ];
@@ -26,7 +27,7 @@ const Sidebar = () => {
       <div className="position-sticky">
         <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
           <NavLink to="/doctors" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span className="fs-5 d-none d-sm-inline text-dark">Doctor Appoinments</span>
+            <span className="fs-5 d-none d-sm-inline text-dark">Doctor Appointments</span>
           </NavLink>
           <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             {links.map((link) => (

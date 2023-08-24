@@ -77,12 +77,6 @@ npm install
 npm start
 ```
 
-- To test the project
-```bash
-npm run test
-```
-
-
 ## Authors
 
 👤 **Lovi Madaan**
@@ -115,4 +109,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./LICENSE.md) licensed.
+This project is [MIT](./LICENSE) licensed.

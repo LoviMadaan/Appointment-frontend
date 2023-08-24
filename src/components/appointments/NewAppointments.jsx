@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createAppointment } from '../../redux/appointment/appointmentSlice';
 
-function NewAppointment() {
+const NewAppointment = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const doctors = useSelector((state) => state.doctors.doctors);
@@ -84,6 +84,6 @@ function NewAppointment() {
       </div>
     </div>
   );
-}
+};
 
 export default NewAppointment;
