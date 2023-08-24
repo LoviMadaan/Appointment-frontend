@@ -1,0 +1,167 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  min-width: 100%;
+}
+
+.home-page-text {
+  color: #a2a4a4;
+  font-weight: bold;
+}
+
+.carousel-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: center;
+  min-width: 80%;
+  padding: 0 1rem;
+}
+
+.carousel-doctor {
+  position: relative;
+  min-width: 100%;
+  padding-right: 1rem;
+}
+
+.doctors-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.circle-color {
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-details {
+  font-size: 12px;
+  color: #a2a4a4;
+}
+
+.carousel-buttons {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -260px;
+}
+
+.btn-doctor {
+  width: 50px;
+  height: 40px;
+  border-radius: 0 50% 50% 0;
+  background-color: #97bf0f;
+  border: none;
+  color: #fff;
+}
+
+.btn-doctor2 {
+  width: 50px;
+  height: 40px;
+  border-radius: 50% 0 0 50%;
+  background-color: #97bf0f;
+  border: none;
+  color: #fff;
+}
+
+.col-navbar.open {
+  width: 33.333333%;
+  max-width: 250px;
+}
+
+.col-navbar.closed {
+  width: 0;
+  overflow: hidden;
+}
+
+.navbar-button {
+  position: relative;
+  bottom: 8rem;
+}
+
+.col-outlet-open {
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.col-outlet-closed {
+  height: 100vh;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+/* DoctorDetails.css */
+.doctor-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.doctor-image-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.doctor-image {
+  height: 90%;
+  width: 90%;
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.doctor-info-container {
+  width: 250px !important;
+  flex: 2;
+}
+
+.doctor-name {
+  font-size: 24px;
+}
+
+.doctor-bio {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-make-appointment {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
