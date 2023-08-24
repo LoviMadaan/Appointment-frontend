@@ -9,7 +9,7 @@ import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi';
 import { fetchDoctors } from '../../redux/docter/doctorSlice';
 
 const Doctors = () => {
-  const doctors = useSelector((state) => state.doctors.doctors);
+  const { doctors, error } = useSelector((state) => state.doctors);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sliderRef = useRef(null);
@@ -58,6 +58,10 @@ const Doctors = () => {
 
   if (doctors.length === 0) {
     return <div>Doctors Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
