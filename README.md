@@ -16,7 +16,13 @@
 
 ## Preview:
 
-### coming after project 
+<div align="center">
+  <img src="./assests/main-page.png" alt="signup" width="140"  height="auto" />
+  <br/>
+  <img src="./assests/Login-page.png" alt="signup" width="140"  height="auto" />
+  <br/>
+  <img src="./assests/Doctors-list.png" alt="signup" width="140"  height="auto" />    
+</div>
 
 
 ## Built With
@@ -32,7 +38,7 @@
 
 ## Live version
 
-[Book-Appoinments](coming soon)
+[Book-Appoinments](https://doctor-appointment-x59j.onrender.com)
 
 ## Getting Started
 
