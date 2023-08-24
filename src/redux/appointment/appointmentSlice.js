@@ -4,7 +4,6 @@ import Cookies from 'js-cookie';
 
 const BASE_URL = 'https://doctor-4phi.onrender.com';
 
-
 const initialState = {
   appointments: [],
   status: 'idle',
