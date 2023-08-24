@@ -19,9 +19,9 @@
 <div align="center">
   <img src="./assests/main-page.png" alt="signup" width="140"  height="auto" />
   <br/>
-  <img src="./assests/Login-page.png" alt="signup" width="140"  height="auto" />
+  <img src="./assests/Login-page.png" alt="login" width="140"  height="auto" />
   <br/>
-  <img src="./assests/Doctors-list.png" alt="signup" width="140"  height="auto" />    
+  <img src="./assests/Doctors-list.png" alt="doctors" width="140"  height="auto" />    
 </div>
 
 
